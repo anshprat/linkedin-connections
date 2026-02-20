@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkedIn Connections Exporter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>LinkedIn Connections Exporter</h1>
+
+    <div id="not-on-page" class="message hidden">
+      <p>Navigate to your <a href="https://www.linkedin.com/mynetwork/invite-connect/connections/" target="_blank">LinkedIn Connections</a> page first.</p>
+    </div>
+
+    <div id="controls">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Collected</span>
+          <span id="count" class="stat-value">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Status</span>
+          <span id="status" class="stat-value">Idle</span>
+        </div>
+      </div>
+
+      <div class="settings">
+        <label for="scroll-delay">Scroll delay (ms):</label>
+        <input type="number" id="scroll-delay" value="1500" min="500" max="10000" step="100">
+        <p class="hint">Higher values are safer but slower. Recommended: 1500-3000ms.</p>
+      </div>
+
+      <div class="actions">
+        <button id="btn-start" class="btn btn-primary">Start Scraping</button>
+        <button id="btn-stop" class="btn btn-danger hidden">Stop</button>
+        <button id="btn-export" class="btn btn-secondary">Export CSV</button>
+        <button id="btn-clear" class="btn btn-warning">Clear Data</button>
+      </div>
+
+      <div id="progress" class="hidden">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <p id="progress-text" class="progress-text"></p>
+      </div>
+
+      <details>
+        <summary class="debug-toggle">Debug Log</summary>
+        <div id="debug-log" class="debug-log"></div>
+      </details>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
